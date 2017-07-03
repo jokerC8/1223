@@ -1,0 +1,10 @@
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\bin\Debug\ZGWUI.exe
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\bin\Debug\ZGWUI.pdb
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.csprojResolveAssemblyReference.cache
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ListManagement.ListManager.resources
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.Form1.resources
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\PortSet.PortSettings.resources
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.Properties.Resources.resources
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.csproj.GenerateResource.Cache
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.exe
+C:\NXP\bstudio_nxp\workspace\ZGWUI\Source\obj\x86\Debug\ZGWUI.pdb
