@@ -106,7 +106,7 @@
 /****************************************************************************/
 /***        Local Functions                                               ***/
 /****************************************************************************/
-uint8 txbuf[16];
+uint8 txbuf[64];
 uint8 rxbuf[127];
 
 /****************************************************************************
@@ -130,7 +130,7 @@ PUBLIC void UART_vInit(void)
     //vAHI_UartEnable(UART);
     bAHI_UartEnable(UART, //uint8 u8Uart,
                 txbuf, //uint8 *pu8TxBufAd,
-                (uint8)16, //uint16 u16TxBufLen,
+                (uint8)64, //uint16 u16TxBufLen,
                 rxbuf, //uint8 *pu8RxBufAd,
                 (uint8)127); //uint16 u16RxBufLen);
 
@@ -141,7 +141,7 @@ PUBLIC void UART_vInit(void)
        directly as the normal routines (in ROM) do not support all baud rates */
     UART_vSetBaudRate(UART_BAUD_RATE);
 
-    vAHI_UartSetRTSCTS(UART, TRUE);
+    //vAHI_UartSetRTSCTS(UART, TRUE);
     vAHI_UartSetControl(UART, FALSE, FALSE, E_AHI_UART_WORD_LEN_8, TRUE, FALSE); /* [I SP001222_P1 279] */
     vAHI_UartSetInterrupt(UART, FALSE, FALSE, FALSE, TRUE, E_AHI_UART_FIFO_LEVEL_1);    // No TX ints!
 
@@ -279,9 +279,9 @@ PUBLIC void UART_vRtsStartFlow(void)
  ****************************************************************************/
 PUBLIC void UART_vTxChar(uint8 u8Char)
 {
-    while(!UART_bTxReady() && !(u8AHI_UartReadLineStatus(E_AHI_UART_0) & E_AHI_UART_LS_TEMT) );
+    while(!UART_bTxReady() /* && !(u8AHI_UartReadLineStatus(E_AHI_UART_0) & E_AHI_UART_LS_TEMT)*/ );
     vAHI_UartWriteData(UART, u8Char);
-    while(!UART_bTxReady() && !(u8AHI_UartReadLineStatus(E_AHI_UART_0) & E_AHI_UART_LS_TEMT) );
+    while(!UART_bTxReady() /* && !(u8AHI_UartReadLineStatus(E_AHI_UART_0) & E_AHI_UART_LS_TEMT)*/ );
 }
 
 /****************************************************************************

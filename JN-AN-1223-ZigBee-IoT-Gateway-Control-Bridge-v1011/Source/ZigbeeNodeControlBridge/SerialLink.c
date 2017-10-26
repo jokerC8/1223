@@ -235,7 +235,12 @@ PUBLIC bool bSL_ReadMessage(uint16 *pu16Type, uint16 *pu16Length, uint16 u16MaxL
     return(FALSE);
 }
 
-
+void Delay1()
+{
+    volatile uint32 i = 70000;
+    while (i--)
+        ;
+}
 /****************************************************************************
  *
  * NAME: vSL_WriteMessage
@@ -281,6 +286,15 @@ PUBLIC void vSL_WriteMessage(uint16 u16Type, uint16 u16Length, uint8 *pu8Data)
 
     /* Send end character */
     vSL_TxByte(TRUE, SL_END_CHAR);
+
+	#if 1
+	u8CRC = 2;// 1==NG  2==OK  5==OK  10==OK  15==OK
+
+	for(n = 0; n < u8CRC; n++)
+	{
+		Delay1();
+	}
+	#endif
 }
 
 

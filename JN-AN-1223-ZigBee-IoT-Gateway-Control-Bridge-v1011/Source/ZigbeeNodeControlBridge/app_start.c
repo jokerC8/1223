@@ -124,6 +124,15 @@ void vfExtendedStatusCallBack (ZPS_teExtendedStatus eExtendedStatus);
 /***        Exported Variables                                            ***/
 /****************************************************************************/
 
+/****************************************************************************/
+/***        Local Functions                                              ***/
+/****************************************************************************/
+static void Delay()
+{
+    volatile uint32 i = 70000;
+    while (i--)
+        ;
+}
 
 /****************************************************************************/
 /***        Local Variables                                               ***/
@@ -191,7 +200,7 @@ PUBLIC void vAppMain(void)
     vSL_LogInit();
 #endif
     UART_vInit();
-    UART_vRtsStartFlow();
+   // UART_vRtsStartFlow();
     vLog_Printf(TRACE_APPSTART,LOG_DEBUG, "\n\nInitialising \n");
 #ifdef PDM_NONE
     PDM_vWaitHost();
@@ -206,6 +215,9 @@ PUBLIC void vAppMain(void)
         vLog_Printf(TRACE_EXC, LOG_CRIT, "\n\n\n%s WATCHDOG RESET @ %08x ", "WDR",((uint32 *)&_heap_location)[0]);
         vSL_LogFlush();
     }
+    Delay();
+    Delay();
+    Delay();
     app_vFormatAndSendUpdateLists();
     OS_vStart(vInitialiseApp, vUnclaimedInterrupt, vOSError);
     
