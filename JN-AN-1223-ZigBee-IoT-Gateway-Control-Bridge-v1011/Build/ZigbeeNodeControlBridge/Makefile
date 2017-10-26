@@ -115,7 +115,7 @@ APPSRC += appZpsBeaconHandler.c
 APPSRC += appZdpExtraction.c
 APPSRC += pdum_apdu.S
 APPSRC += app_scenes.c
-APPSRC += app_ota_server.c
+#APPSRC += app_ota_server.c
 APPSRC += app_poll_control_commands_handler.c
 
 ifeq ($(STACK_MEASURE), 1)
@@ -162,7 +162,7 @@ APP_CLUSTERS_HVAC_SRC ?= 1
 APP_CLUSTERS_IAS_SRC ?=  1
 APP_CLUSTERS_SMART_ENERGY_SRC ?= 1
 APP_CLUSTERS_ENERGY_AT_HOME_SRC ?= 1
-APP_CLUSTERS_OTA_SRC ?= 1
+#APP_CLUSTERS_OTA_SRC ?= 1
 
 ###############################################################################
 ###############################################################################
