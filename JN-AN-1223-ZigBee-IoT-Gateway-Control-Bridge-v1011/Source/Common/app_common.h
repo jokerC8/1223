@@ -57,8 +57,8 @@
 #define VERSION	0x00000000
 #endif
 
-#define TX_POWER_NORMAL     10
-#define TX_POWER_LOW        0
+#define TX_POWER_NORMAL     64
+#define TX_POWER_LOW        (64-2)
 #define ZCL_TICK_TIME           APP_TIME_MS(1000)
 #define MAX_PACKET_SIZE      256
 #define DEFAULT_CHANNEL        15
