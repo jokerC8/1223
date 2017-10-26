@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oscfg="http://www.jennic.com/OSConfig">
   <oscfg:Configuration xmi:id="_lffrUTpJEd6X1p7n01EMHA" Version="1.0">
-    <OS xmi:type="oscfg:OS" xmi:id="_sKdHcDpJEd6X1p7n01EMHA" target="JN516x" errorHook="true" strictErrorChecks="false" clearStack="false">
+    <OS xmi:type="oscfg:OS" xmi:id="_sKdHcDpJEd6X1p7n01EMHA" target="JN516x" errorHook="true" strictErrorChecks="false" clearStack="true">
       <Modules xmi:type="oscfg:Module" xmi:id="_tPAUsDpJEd6X1p7n01EMHA" name="ZBPro">
         <ISRs xmi:type="oscfg:ISR" xmi:id="_gYSrgDpKEd6X1p7n01EMHA" name="zps_isrMAC" PostMessage="_0KiuADpKEd6X1p7n01EMHA _50hOQDpKEd6X1p7n01EMHA _PWZ5YaE4Ed60gI9rw_6Trg _swxYUE0HEeePstYRDOSOSQ" EnterExitMutex="_F6f-EDpKEd6X1p7n01EMHA" IPL="7" type="controlled" ISRSource="_2X3EsDpLEd6X1p7n01EMHA"/>
         <Mutexs xmi:type="oscfg:Mutex" xmi:id="_98PuEDpJEd6X1p7n01EMHA" name="mutexZPS"/>
