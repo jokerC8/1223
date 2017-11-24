@@ -890,6 +890,9 @@ PRIVATE void APP_ZCL_cbEndpointCallback(tsZCL_CallBackEvent *psEvent)
                     vSL_WriteMessage(E_SL_MSG_ONOFF_UPDATE, u16Length, au8StatusBuffer);
                 }
                 break;
+        	case MEASUREMENT_AND_SENSING_CLUSTER_ID_OCCUPANCY_SENSING:
+				vLog_Printf(TRACE_ZCL,LOG_DEBUG, "- for Occupancy Sensing cluster\r\n");
+				break;
             case GENERAL_CLUSTER_ID_IDENTIFY:
                 vLog_Printf(TRACE_ZCL,LOG_DEBUG, "- for identify cluster\r\n");
                 break;
@@ -1488,6 +1491,16 @@ PUBLIC teZCL_Status eZLL_RegisterZncControlBridgeEndPoint(uint8 u8EndPointIdenti
                               &au8OnOffServerAttributeControlBits[0],
                               &psDeviceInfo->sOnOffServerCustomDataStructure);
     #endif
+
+
+	#if (defined CLD_OCCUPANCY_SENSING) && (defined OCCUPANCY_SENSING_CLIENT)
+		/* Create an instance of an occupancy sensing cluster as a client */
+        eCLD_OccupancySensingCreateOccupancySensing(&psDeviceInfo->sClusterInstance.sOccupancySensingClient,
+												    FALSE,
+												    &sCLD_OccupancySensing,
+												    NULL,
+												    NULL);
+	#endif
 
     #if (defined CLD_LEVEL_CONTROL) && (defined LEVEL_CONTROL_CLIENT)
         /* Create an instance of a Level Control cluster as a client */

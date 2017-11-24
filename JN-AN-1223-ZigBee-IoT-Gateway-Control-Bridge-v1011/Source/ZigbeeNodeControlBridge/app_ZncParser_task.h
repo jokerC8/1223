@@ -155,6 +155,10 @@ typedef struct
         tsZCL_ClusterInstance sOnOffServer;
     #endif
 
+	#if (defined CLD_OCCUPANCY_SENSING) && (defined OCCUPANCY_SENSING_CLIENT)
+		tsZCL_ClusterInstance sOccupancySensingClient;
+	#endif
+
     #if (defined CLD_GROUPS) && (defined GROUPS_CLIENT)
         tsZCL_ClusterInstance sGroupsClient;
     #endif
