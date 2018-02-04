@@ -114,6 +114,9 @@ typedef enum
     E_SL_MSG_ADD_AUTHENTICATE_DEVICE        =   0x0028,
     E_SL_MSG_AUTHENTICATE_DEVICE_RESPONSE   =   0x8028,
 
+    E_SL_MSG_NETWORK_STATE_REQ              =   0x0009,
+    E_SL_MSG_NETWORK_STATE_RSP              =   0x8009,
+
     E_SL_MSG_RESET                          =   0x0011,
     E_SL_MSG_ERASE_PERSISTENT_DATA          =   0x0012,
     E_SL_MSG_ZLL_FACTORY_NEW                =   0x0013,

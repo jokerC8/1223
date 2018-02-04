@@ -197,6 +197,8 @@ extern tsCommissionData sCommission;
 extern void ZPS_vTCSetCallback(void*);
 PRIVATE uint64 u64CallbackMacAddress = 0;
 
+PUBLIC uint32 u32Channel;
+
 bool_t bProcessMessages = TRUE, bBlackListEnable = FALSE;
 /****************************************************************************/
 /***        Exported Public Functions                                     ***/
@@ -589,6 +591,14 @@ PUBLIC void vProcessIncomingSerialCommands(void)
 					sAppEvent.eType = APP_E_EVENT_SEND_PERMIT_JOIN;
 					OS_ePostMessage(APP_msgEvents, &sAppEvent);
 				}
+				break;
+
+				case (E_SL_MSG_NETWORK_STATE_REQ):
+                {
+				    APP_tsEvent sAppEvent;
+				    sAppEvent.eType = APP_E_EVENT_NETWORK_STATE;
+				    OS_ePostMessage(APP_msgEvents, &sAppEvent);
+                }
 				break;
 
 				case (E_SL_MSG_SET_DEVICETYPE):

@@ -80,8 +80,8 @@ endif
 # Path definitions
 
 # Use if application directory contains multiple targets
-BSTUDIO_BASE_DIR   	?= $(abspath ../../../../../)
-SDK_BASE_DIR   	 	= $(BSTUDIO_BASE_DIR)/sdk/$(JENNIC_SDK)
+BSTUDIO_BASE_DIR   	?= $(abspath ../../../../../../)
+SDK_BASE_DIR   	 	= $(BSTUDIO_BASE_DIR)/NXP/bstudio_nxp/sdk/$(JENNIC_SDK)
 APP_BASE           	?= $(abspath ../../)
 APP_BLD_DIR			= $(APP_BASE)/Build/ZigbeeNodeControlBridge
 APP_SRC_DIR 	   	= $(APP_BASE)/Source/ZigbeeNodeControlBridge

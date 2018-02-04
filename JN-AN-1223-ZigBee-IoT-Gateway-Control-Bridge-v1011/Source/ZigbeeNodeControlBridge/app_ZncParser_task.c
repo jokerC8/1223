@@ -757,6 +757,41 @@ OS_TASK(APP_taskZncb)
         vSL_WriteMessage(E_SL_MSG_GET_PERMIT_JOIN_RESPONSE, u16Length, au8StatusBuffer);
     }
 
+    if(sAppEvent.eType == APP_E_EVENT_NETWORK_STATE)
+    {
+        extern uint32 u32Channel;
+        uint16 u16NwkAddr;
+        uint64 u64IeeeAddr;
+        uint64 u64PANID;
+        uint16 u16PANID;
+        pu8Buffer = au8StatusBuffer;
+
+        u16NwkAddr = ZPS_u16NwkNibGetNwkAddr(ZPS_pvAplZdoGetNwkHandle());
+        u64IeeeAddr = ZPS_u64NwkNibGetExtAddr(ZPS_pvAplZdoGetNwkHandle());
+        u64PANID = ZPS_u64NwkNibGetEpid(ZPS_pvAplZdoGetNwkHandle());
+        u16PANID = ZPS_u16NwkNibGetMacPanId(ZPS_pvAplZdoGetNwkHandle());
+        eAppApiPlmeGet(PHY_PIB_ATTR_CURRENT_CHANNEL, &u32Channel);
+
+        pu8Buffer = au8StatusBuffer;
+        memcpy(pu8Buffer,(uint8*)&u16NwkAddr,sizeof(uint16) );
+        u16Length = sizeof(uint16);
+        pu8Buffer += sizeof(uint16);
+        memcpy(pu8Buffer,(uint8*)&u64IeeeAddr,sizeof(uint64) );
+        u16Length += sizeof(uint64);
+        pu8Buffer += sizeof(uint64);
+        memcpy(pu8Buffer,(uint8*)&u16PANID,sizeof(uint16) );
+        u16Length += sizeof(uint16);
+        pu8Buffer += sizeof(uint16);
+        memcpy(pu8Buffer,(uint8*)&u64PANID,sizeof(uint64) );
+        u16Length += sizeof(uint64);
+        pu8Buffer += sizeof(uint64);
+        *pu8Buffer = (uint8)u32Channel;
+        u16Length += sizeof(uint8);
+        pu8Buffer += sizeof(uint8);
+
+        vSL_WriteMessage(E_SL_MSG_NETWORK_STATE_RSP, u16Length, au8StatusBuffer);
+    }
+
     if(sAppEvent.eType == APP_E_EVENT_ENCRYPT_SEND_KEY)
     {
         AESSW_Block_u uNonce;
